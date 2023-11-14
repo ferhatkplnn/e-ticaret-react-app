@@ -25,6 +25,9 @@ function Navbar() {
         <Link to="/signin">
           <Button colorScheme="linkedin">Login</Button>
         </Link>
+        <Link to="/signup">
+          <Button colorScheme="gray">Register</Button>
+        </Link>
       </Box>
     </Flex>
   );
