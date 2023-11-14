@@ -12,7 +12,7 @@ function Navbar() {
       <Flex alignItems="center">
         <Box>
           <Text fontWeight="bold" fontSize="x-large" color="teal.500">
-            <Link>E-ticaret</Link>
+            <Link to="/">E-ticaret</Link>
           </Text>
         </Box>
 
