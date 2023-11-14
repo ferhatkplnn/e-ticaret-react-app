@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Text } from "@chakra-ui/react";
 
 function Navbar() {
   return (
@@ -21,7 +21,11 @@ function Navbar() {
         </Box>
       </Flex>
 
-      <Box>rigth</Box>
+      <Box>
+        <Link to="/signin">
+          <Button colorScheme="linkedin">Login</Button>
+        </Link>
+      </Box>
     </Flex>
   );
 }
