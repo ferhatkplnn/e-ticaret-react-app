@@ -15,7 +15,7 @@ import {
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Card({ product }) {
+function ProductCard({ product }) {
   console.log(product);
   return (
     <ChakraCard maxW="sm">
@@ -58,4 +58,4 @@ function Card({ product }) {
   );
 }
 
-export default Card;
+export default ProductCard;

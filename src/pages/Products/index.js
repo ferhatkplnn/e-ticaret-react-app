@@ -1,9 +1,10 @@
 import React from "react";
-import Card from "../../components/Card";
+// import Card from "../../components/Card";
 import { Button, Flex, Grid } from "@chakra-ui/react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { fetchProductList } from "../../api";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import ProductCard from "../../components/ProductCard";
 
 function Products() {
   const {
@@ -39,7 +40,7 @@ function Products() {
         {data.pages.map((group, i) => (
           <React.Fragment key={i}>
             {group.map((product) => (
-              <Card product={product} key={product._id} />
+              <ProductCard product={product} key={product._id} />
             ))}
           </React.Fragment>
         ))}
