@@ -31,7 +31,7 @@ function ProductCard({ product }) {
           "0 20px 25px -5px rgba(0, 0, 0, 0.1),0 10px 10px -5px rgba(0, 0, 0, 0.04)",
       }}
     >
-      <Link>
+      <Link to={`/product/${product._id}`}>
         <CardBody>
           <AspectRatio ratio={4 / 3}>
             <Skeleton isLoaded={imageLoaded}>
