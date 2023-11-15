@@ -1,8 +1,9 @@
 import React from "react";
 import Card from "../../components/Card";
-import { Button, Flex, Grid } from "@chakra-ui/react";
+import { Button, Flex, Grid, Spinner } from "@chakra-ui/react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { fetchProductList } from "../../api";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 function Products() {
   const {
@@ -26,7 +27,7 @@ function Products() {
     },
   });
 
-  if (status === "pending") return <p>Loading ...</p>;
+  if (status === "pending") return <LoadingSpinner />;
 
   if (status === "error") return <p>Error: {error.message}</p>;
 
