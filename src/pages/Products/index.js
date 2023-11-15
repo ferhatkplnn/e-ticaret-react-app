@@ -1,10 +1,10 @@
-import React from "react";
-// import Card from "../../components/Card";
+import React, { useEffect } from "react";
 import { Button, Flex, Grid } from "@chakra-ui/react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { fetchProductList } from "../../api";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import ProductCard from "../../components/ProductCard";
+import { useInView } from "react-intersection-observer";
 
 function Products() {
   const {
@@ -27,12 +27,17 @@ function Products() {
       return allGroup.length + 1;
     },
   });
+  const [ref, inView] = useInView({});
+
+  useEffect(() => {
+    if (inView && hasNextPage) {
+      fetchNextPage();
+    }
+  }, [inView, hasNextPage, fetchNextPage]);
 
   if (status === "pending") return <LoadingSpinner />;
 
   if (status === "error") return <p>Error: {error.message}</p>;
-
-  console.log(data);
 
   return (
     <div>
@@ -58,7 +63,9 @@ function Products() {
             : "Nothing more to load"}
         </Button>
       </Flex>
-      <div>{isFetching && !isFetchingNextPage ? "Fetching..." : null}</div>
+      <div ref={ref}>
+        {isFetching && !isFetchingNextPage ? "Fetching..." : null}
+      </div>
     </div>
   );
 }
