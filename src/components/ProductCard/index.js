@@ -11,24 +11,34 @@ import {
   Card as ChakraCard,
   AspectRatio,
   Tooltip,
+  Skeleton,
 } from "@chakra-ui/react";
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function ProductCard({ product }) {
-  console.log(product);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
+
   return (
     <ChakraCard maxW="sm">
       <Link>
         <CardBody>
           <AspectRatio ratio={4 / 3}>
-            <Image
-              src={product.photos[0]}
-              alt={product.title}
-              objectFit="cover"
-              borderRadius="lg"
-            />
+            <Skeleton isLoaded={imageLoaded}>
+              <Image
+                src={product.photos[0]}
+                alt={product.title}
+                objectFit="cover"
+                borderRadius="lg"
+                onLoad={handleImageLoad}
+              />
+            </Skeleton>
           </AspectRatio>
+
           <Stack mt="6" spacing="3">
             <Heading size="md">{product.title}</Heading>
             <Tooltip label={product.description} hasArrow>
