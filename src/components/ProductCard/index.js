@@ -24,16 +24,22 @@ function ProductCard({ product }) {
   };
 
   return (
-    <ChakraCard maxW="sm">
+    <ChakraCard
+      maxW="sm"
+      _hover={{
+        boxShadow:
+          "0 20px 25px -5px rgba(0, 0, 0, 0.1),0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+      }}
+    >
       <Link>
         <CardBody>
           <AspectRatio ratio={4 / 3}>
             <Skeleton isLoaded={imageLoaded}>
               <Image
+                w={"full"}
                 src={product.photos[0]}
                 alt={product.title}
                 objectFit="cover"
-                borderRadius="lg"
                 onLoad={handleImageLoad}
               />
             </Skeleton>
