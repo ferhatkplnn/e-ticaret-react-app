@@ -13,9 +13,11 @@ import { useFormik } from "formik";
 import React from "react";
 import validationSchema from "./validation";
 import { fetchRegister } from "../../../api";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const toast = useToast();
+  const navigate = useNavigate();
 
   const { values, touched, errors, handleChange, handleBlur, handleSubmit } =
     useFormik({
@@ -37,6 +39,8 @@ function Signup() {
             status: "success",
             isClosable: true,
           });
+
+          navigate("/");
         } catch (error) {
           bag.setErrors({ general: error.response.data.message });
         }
