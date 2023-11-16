@@ -7,6 +7,7 @@ import {
   FormLabel,
   Heading,
   Input,
+  useToast,
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import React from "react";
@@ -14,6 +15,8 @@ import validationSchema from "./validation";
 import { fetchRegister } from "../../../api";
 
 function Signup() {
+  const toast = useToast();
+
   const { values, touched, errors, handleChange, handleBlur, handleSubmit } =
     useFormik({
       initialValues: {
@@ -27,6 +30,12 @@ function Signup() {
           await fetchRegister({
             email: values.email,
             password: values.passwordConfirm,
+          });
+
+          toast({
+            title: `Registration successfully completed 🎉`,
+            status: "success",
+            isClosable: true,
           });
         } catch (error) {
           bag.setErrors({ general: error.response.data.message });
