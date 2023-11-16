@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Box, Button, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
+import { AuthButtons } from "./AuthButtons";
 
 function Navbar() {
   return (
@@ -20,15 +21,7 @@ function Navbar() {
           <Link>Products</Link>
         </Box>
       </Flex>
-
-      <Box>
-        <Link to="/signin">
-          <Button colorScheme="linkedin">Login</Button>
-        </Link>
-        <Link to="/signup">
-          <Button colorScheme="gray">Register</Button>
-        </Link>
-      </Box>
+      <AuthButtons />
     </Flex>
   );
 }
