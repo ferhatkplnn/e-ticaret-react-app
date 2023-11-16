@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import React from "react";
+import validationSchema from "./validation";
 
 function Signup() {
   const { values, touched, errors, handleChange, handleBlur, handleSubmit } =
@@ -19,6 +20,7 @@ function Signup() {
         password: "",
         passwordConfirm: "",
       },
+      validationSchema,
       onSubmit: (values, bag) => {
         try {
           console.log("submited");
