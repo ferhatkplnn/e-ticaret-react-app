@@ -14,8 +14,10 @@ import React from "react";
 import validationSchema from "./validation";
 import { fetchRegister } from "../../../api";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../context/AuthContext";
 
 function Signup() {
+  const { login } = useAuth();
   const toast = useToast();
   const navigate = useNavigate();
 
@@ -29,10 +31,12 @@ function Signup() {
       validationSchema,
       onSubmit: async (values, bag) => {
         try {
-          await fetchRegister({
+          const registerResponse = await fetchRegister({
             email: values.email,
             password: values.passwordConfirm,
           });
+
+          login(registerResponse);
 
           toast({
             title: `Registration successfully completed 🎉`,
