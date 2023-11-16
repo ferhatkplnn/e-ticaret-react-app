@@ -18,12 +18,12 @@ const queryClient = new QueryClient({
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <AuthProvider>
-    <QueryClientProvider client={queryClient}>
-      <ChakraProvider>
+  <ChakraProvider>
+    <AuthProvider>
+      <QueryClientProvider client={queryClient}>
         <App />
-      </ChakraProvider>
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
-  </AuthProvider>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    </AuthProvider>
+  </ChakraProvider>
 );
