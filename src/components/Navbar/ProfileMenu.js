@@ -17,7 +17,7 @@ export const ProfileMenu = () => (
     </MenuButton>
     <MenuList boxShadow="base">
       <MenuGroup title="Profile">
-        <Link to="/">
+        <Link to="/profile">
           <MenuItem>My Account</MenuItem>
         </Link>
         <Link to="">
