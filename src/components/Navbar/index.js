@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { AuthButtons } from "./AuthButtons";
+import { ColorToggle } from "./ColorToggle";
 
 function Navbar() {
   return (
@@ -21,6 +22,7 @@ function Navbar() {
           <Link>Products</Link>
         </Box>
       </Flex>
+      <ColorToggle />
       <AuthButtons />
     </Flex>
   );
