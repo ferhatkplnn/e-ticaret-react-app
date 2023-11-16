@@ -21,7 +21,6 @@ function ProductDetail() {
   if (isError) {
     return <span>Error: {error.message}</span>;
   }
-  console.log(data);
 
   const images =
     data.photos?.map((url) => ({

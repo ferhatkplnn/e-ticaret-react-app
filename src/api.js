@@ -2,7 +2,6 @@ import axios from "axios";
 
 const setAuthorizationHeader = (config) => {
   const { origin } = new URL(config.url);
-  console.log(config);
   const allowedEndpoints = [process.env.REACT_APP_BASE_ENDPOINT];
   const token = localStorage.getItem("access-token");
 
