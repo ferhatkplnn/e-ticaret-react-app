@@ -7,12 +7,13 @@ import {
   MenuItem,
   MenuList,
 } from "@chakra-ui/react";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 
 export const ProfileMenu = () => (
   <Menu>
     <MenuButton as={Button} colorScheme="linkedin">
-      Profile
+      Profile <ChevronDownIcon />
     </MenuButton>
     <MenuList boxShadow="base">
       <MenuGroup title="Profile">
