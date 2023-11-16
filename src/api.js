@@ -1,5 +1,30 @@
 import axios from "axios";
 
+const setAuthorizationHeader = (config) => {
+  const { origin } = new URL(config.url);
+  console.log(config);
+  const allowedEndpoints = [process.env.REACT_APP_BASE_ENDPOINT];
+  const token = localStorage.getItem("access-token");
+
+  config.headers = config.headers || {};
+
+  if (token && allowedEndpoints.includes(origin)) {
+    config.headers.Authorization = token;
+  }
+
+  return config;
+};
+
+const requestInterceptorErrorHandler = (error) => {
+  console.error("Request interceptor error:", error);
+  return Promise.reject(error);
+};
+
+axios.interceptors.request.use(
+  setAuthorizationHeader,
+  requestInterceptorErrorHandler
+);
+
 export const fetchProductList = async ({ pageParam = 1 }) => {
   const { data } = await axios.get(
     `${process.env.REACT_APP_BASE_ENDPOINT}/product?page=+${pageParam}`
