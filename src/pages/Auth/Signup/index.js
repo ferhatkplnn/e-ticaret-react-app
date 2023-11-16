@@ -11,6 +11,7 @@ import {
 import { useFormik } from "formik";
 import React from "react";
 import validationSchema from "./validation";
+import { fetchRegister } from "../../../api";
 
 function Signup() {
   const { values, touched, errors, handleChange, handleBlur, handleSubmit } =
@@ -21,11 +22,12 @@ function Signup() {
         passwordConfirm: "",
       },
       validationSchema,
-      onSubmit: (values, bag) => {
+      onSubmit: async (values, bag) => {
         try {
-          console.log("submited");
-          console.log(values);
-          console.log(bag);
+          await fetchRegister({
+            email: values.email,
+            password: values.passwordConfirm,
+          });
         } catch (error) {
           bag.setErrors({ general: error.response.data.message });
         }
