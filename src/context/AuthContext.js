@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { fetchMe } from "../api";
+import { fetchUserData } from "../api";
 import LoadingSpinner from "../components/LoadingSpinner";
 
 const AuthContext = createContext();
@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     (async () => {
       try {
-        const userData = await fetchMe();
+        const userData = await fetchUserData();
 
         setLoggedIn(true);
         setUser(userData);

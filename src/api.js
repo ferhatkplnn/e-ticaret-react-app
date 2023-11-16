@@ -50,7 +50,7 @@ export const fetchRegister = async (input) => {
   return data;
 };
 
-export const fetchMe = async () => {
+export const fetchUserData = async () => {
   const { data } = await axios.get(
     `${process.env.REACT_APP_BASE_ENDPOINT}/auth/me`
   );
