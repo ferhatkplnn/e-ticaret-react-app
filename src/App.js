@@ -9,7 +9,7 @@ import Profile from "./pages/Profile";
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <Navbar />
       <Box p="20px">
         <Routes>
@@ -20,7 +20,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </Box>
-    </BrowserRouter>
+    </>
   );
 }
 
