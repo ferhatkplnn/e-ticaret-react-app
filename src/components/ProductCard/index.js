@@ -17,6 +17,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useBasket } from "../../context/BasketContext";
 import { DeleteIcon } from "@chakra-ui/icons";
+import moment from "moment";
 
 function ProductCard({ product }) {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -60,6 +61,9 @@ function ProductCard({ product }) {
             <Text color="blue.600" fontSize="2xl">
               ${product.price}
             </Text>
+            <Text fontSize="small" fontStyle="italic" color="blackAlpha.600">
+              {moment(product.createAt).format("DD/MM/YYYY")}
+            </Text>{" "}
           </Stack>
         </CardBody>
       </Link>

@@ -14,6 +14,7 @@ import {
 import ImageGallery from "react-image-gallery";
 import { DeleteIcon } from "@chakra-ui/icons";
 import { useBasket } from "../../context/BasketContext";
+import moment from "moment";
 
 function ProductDetail() {
   const { product_id } = useParams();
@@ -59,7 +60,7 @@ function ProductDetail() {
         </Text>
         <Text>{data.description}</Text>
         <Text fontSize="small" fontStyle="italic" color="blackAlpha.600">
-          {data.createAt}
+          {moment(data.createAt).format("DD/MM/YYYY")}
         </Text>{" "}
         <ButtonGroup spacing="3" mt="5">
           <Button variant="solid" colorScheme="blue">
