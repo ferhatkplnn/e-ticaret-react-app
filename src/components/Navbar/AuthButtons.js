@@ -2,9 +2,12 @@ import { Box, Button } from "@chakra-ui/react";
 import { useAuth } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 import { ProfileMenu } from "./ProfileMenu";
+import { useBasket } from "../../context/BasketContext";
+import BasketPopover from "./BasketPopover";
 
 export const AuthButtons = () => {
   const { loggedIn, user, loading } = useAuth();
+  const { basket } = useBasket();
 
   if (!loggedIn && !loading) {
     return (
@@ -19,5 +22,10 @@ export const AuthButtons = () => {
     );
   }
 
-  return <>{user?.role === "user" && <ProfileMenu />}</>;
+  return (
+    <Box>
+      {basket.length > 0 && <BasketPopover basket={basket} />}
+      {user?.role === "user" && <ProfileMenu />}
+    </Box>
+  );
 };
