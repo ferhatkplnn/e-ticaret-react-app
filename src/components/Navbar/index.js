@@ -10,6 +10,7 @@ function Navbar() {
       alignItems="center"
       p="2"
       boxShadow="base"
+      minH="3.5em"
     >
       <Flex alignItems="center">
         <Box>
