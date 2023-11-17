@@ -1,6 +1,6 @@
 import React from "react";
 import { useAuth } from "../../context/AuthContext";
-import { Box, Text, Avatar, Badge, Spinner } from "@chakra-ui/react";
+import { Box, Text, Avatar, Badge } from "@chakra-ui/react";
 
 function Profile() {
   const { user } = useAuth();

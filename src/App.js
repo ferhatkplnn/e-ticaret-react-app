@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Products from "./pages/Products";
 import { Box } from "@chakra-ui/react";
 import Signin from "./pages/Auth/Signin";
