@@ -5,14 +5,22 @@ const BasketContext = createContext();
 const BasketProvider = ({ children }) => {
   const [basket, setBasket] = useState([]);
 
-  const addToBasket = (data) => {
-    setBasket((prev) => [...prev, data]);
+  const addToBasket = (product) => {
+    setBasket((prevBasket) => [...prevBasket, product]);
   };
 
-  const values = { basket, setBasket, addToBasket };
+  const removeFromBasket = (product) => {
+    const newBasket = basket.filter((p) => !(p._id === product._id));
+
+    setBasket([...newBasket]);
+  };
+
+  const contextValues = { basket, setBasket, addToBasket, removeFromBasket };
 
   return (
-    <BasketContext.Provider value={values}>{children}</BasketContext.Provider>
+    <BasketContext.Provider value={contextValues}>
+      {children}
+    </BasketContext.Provider>
   );
 };
 
