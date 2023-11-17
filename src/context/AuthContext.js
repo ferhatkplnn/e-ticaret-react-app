@@ -26,12 +26,12 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const login = (data) => {
-    setLoggedIn(true);
-    setUser(data.user);
-
     try {
       localStorage.setItem("access-token", data.accessToken);
       localStorage.setItem("refresh-token", data.refreshToken);
+
+      setLoggedIn(true);
+      setUser(data.user);
     } catch (error) {
       console.error("Error storing tokens:", error);
     }
@@ -41,12 +41,14 @@ const AuthProvider = ({ children }) => {
     setLoggedIn(false);
     setUser(null);
 
-    await fetchLogout();
-
-    localStorage.removeItem("access-token");
-    localStorage.removeItem("refresh-token");
-
-    navigate("/");
+    try {
+      await fetchLogout();
+      localStorage.removeItem("access-token");
+      localStorage.removeItem("refresh-token");
+      navigate("/");
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
   };
 
   const authContextValues = {
