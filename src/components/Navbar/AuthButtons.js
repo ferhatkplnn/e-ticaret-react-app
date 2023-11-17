@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { ProfileMenu } from "./ProfileMenu";
 
 export const AuthButtons = () => {
-  const { loggedIn, user } = useAuth();
+  const { loggedIn, user, loading } = useAuth();
 
-  if (!loggedIn) {
+  if (!loggedIn && !loading) {
     return (
       <Box>
         <Link to="/signin">
