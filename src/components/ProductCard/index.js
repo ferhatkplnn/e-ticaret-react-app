@@ -15,9 +15,14 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useBasket } from "../../context/BasketContext";
+import { DeleteIcon } from "@chakra-ui/icons";
 
 function ProductCard({ product }) {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const { addToBasket, basket, removeFromBasket } = useBasket();
+
+  const findBasketItem = basket.find((p) => p._id === product._id);
 
   const handleImageLoad = () => {
     setImageLoaded(true);
@@ -65,9 +70,26 @@ function ProductCard({ product }) {
           <Button variant="solid" colorScheme="blue">
             Buy now
           </Button>
-          <Button variant="ghost" colorScheme="blue">
-            Add to cart
-          </Button>
+          {findBasketItem ? (
+            <Button
+              color="red"
+              variant="ghost"
+              colorScheme="blue"
+              onClick={() => {
+                removeFromBasket(product);
+              }}
+            >
+              <DeleteIcon color="red" boxSize="28px" />
+            </Button>
+          ) : (
+            <Button
+              variant="ghost"
+              colorScheme="blue"
+              onClick={() => addToBasket(product)}
+            >
+              Add to cart
+            </Button>
+          )}
         </ButtonGroup>
       </CardFooter>
     </ChakraCard>
