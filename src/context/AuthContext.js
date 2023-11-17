@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { fetchLogout, fetchUserData } from "../api";
-import LoadingSpinner from "../components/LoadingSpinner";
 import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
@@ -55,11 +54,8 @@ const AuthProvider = ({ children }) => {
     user,
     login,
     logout,
+    loading,
   };
-
-  if (loading) {
-    return <LoadingSpinner />;
-  }
 
   return (
     <AuthContext.Provider value={authContextValues}>
