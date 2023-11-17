@@ -52,7 +52,7 @@ function Signup() {
     });
   return (
     <Flex textAlign="center" width="full" justifyContent="center">
-      <Box>
+      <Box pt="10" width={{ base: "100%", sm: "50%", md: "25%" }}>
         <Box textAlign="center">
           <Heading>Sign Up</Heading>
         </Box>
