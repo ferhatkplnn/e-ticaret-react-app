@@ -3,6 +3,7 @@ import { useAuth } from "../context/AuthContext";
 import { Navigate, useRoutes } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner";
 import Basket from "../pages/Basket";
+import Error404 from "../pages/Error404";
 
 const Products = lazy(() => import("../pages/Products"));
 const Signin = lazy(() => import("../pages/Auth/Signin"));
@@ -34,6 +35,7 @@ function RouterElement() {
       element: loggedIn ? <Profile /> : <Navigate to="/" />,
     },
     { path: "/basket", element: <Basket /> },
+    { path: "*", element: <Error404 /> },
   ];
 
   const routers = useRoutes(routeConfig);
