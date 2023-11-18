@@ -22,7 +22,7 @@ const BasketPopover = ({ basket }) => {
     <Popover>
       <PopoverTrigger>
         <Button colorScheme="pink" variant="outline" mr="5">
-          Basket ({basket.length})
+          Cart ({basket.length})
         </Button>
       </PopoverTrigger>
       <PopoverContent>
@@ -30,7 +30,7 @@ const BasketPopover = ({ basket }) => {
         <PopoverCloseButton />
         <PopoverHeader>
           <Text fontWeight="bold" fontSize="md" textAlign="center">
-            Basket List
+            Cart List
           </Text>
         </PopoverHeader>
         <PopoverBody>
@@ -59,7 +59,7 @@ const BasketPopover = ({ basket }) => {
         </PopoverBody>
         <PopoverFooter>
           <Button display="flex" as="u" variant="link" colorScheme="red">
-            <Link to="basket">Go Basket</Link>
+            <Link to="basket">Go Cart</Link>
           </Button>
         </PopoverFooter>
       </PopoverContent>
