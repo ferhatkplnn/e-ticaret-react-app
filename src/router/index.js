@@ -4,6 +4,7 @@ import { Navigate, useRoutes } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
 import Basket from "../pages/Basket";
 import Error404 from "../pages/Error404";
+import Admin from "../pages/Admin";
 
 const Products = lazy(() => import("../pages/Products"));
 const Signin = lazy(() => import("../pages/Auth/Signin"));
@@ -12,7 +13,7 @@ const ProductDetail = lazy(() => import("../pages/ProductDetail"));
 const Profile = lazy(() => import("../pages/Profile"));
 
 function RouterElement() {
-  const { loggedIn } = useAuth();
+  const { loggedIn, user } = useAuth();
   const routeConfig = [
     {
       path: "/",
@@ -35,7 +36,12 @@ function RouterElement() {
       element: loggedIn ? <Profile /> : <Navigate to="/" />,
     },
     { path: "/basket", element: <Basket /> },
+    {
+      path: "/admin/*",
+      element: user?.role === "admin" ? <Admin /> : <Navigate to="/" />,
+    },
     { path: "*", element: <Error404 /> },
+    {},
   ];
 
   const routers = useRoutes(routeConfig);
