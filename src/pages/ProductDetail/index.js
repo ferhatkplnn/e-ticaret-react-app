@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { fetchProduct } from "../../api";
 import { useQuery } from "@tanstack/react-query";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import {
   Box,
   Button,

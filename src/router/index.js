@@ -1,7 +1,7 @@
 import { Suspense, lazy } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Navigate, useRoutes } from "react-router-dom";
-import LoadingSpinner from "../components/LoadingSpinner";
+import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
 import Basket from "../pages/Basket";
 import Error404 from "../pages/Error404";
 

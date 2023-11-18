@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Button, Flex, Grid } from "@chakra-ui/react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { fetchProductList } from "../../api";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import ProductCard from "../../components/ProductCard";
 import { useInView } from "react-intersection-observer";
 
