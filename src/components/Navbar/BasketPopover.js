@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useBasket } from "../../context/BasketContext";
+import { DeleteIcon } from "@chakra-ui/icons";
 
 const BasketPopover = ({ basket }) => {
   const { removeFromBasket } = useBasket();
@@ -42,7 +43,7 @@ const BasketPopover = ({ basket }) => {
               >
                 <Button variant="link">
                   <Link to={`product/${item._id}`}>
-                    {index + 1} - {item.title} - {item.price}
+                    {index + 1} - {item.title} - ${item.price}
                   </Link>
                 </Button>
                 <Button
@@ -50,7 +51,7 @@ const BasketPopover = ({ basket }) => {
                   variant="link"
                   onClick={() => removeFromBasket(item)}
                 >
-                  X
+                  <DeleteIcon color="red" boxSize="16px" />
                 </Button>
               </ListItem>
             ))}
