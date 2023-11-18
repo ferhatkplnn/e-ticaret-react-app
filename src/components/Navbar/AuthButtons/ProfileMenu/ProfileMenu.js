@@ -15,7 +15,7 @@ export const ProfileMenu = () => {
   const { logout } = useAuth();
   return (
     <Menu>
-      <MenuButton as={Button} colorScheme="linkedin">
+      <MenuButton as={Button} colorScheme="gray" variant="solid">
         Profile <ChevronDownIcon />
       </MenuButton>
       <MenuList boxShadow="base">
