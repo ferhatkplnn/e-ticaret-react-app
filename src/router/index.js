@@ -2,6 +2,7 @@ import { Suspense, lazy } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Navigate, useRoutes } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner";
+import Basket from "../pages/Basket";
 
 const Products = lazy(() => import("../pages/Products"));
 const Signin = lazy(() => import("../pages/Auth/Signin"));
@@ -32,6 +33,7 @@ function RouterElement() {
       path: "/profile",
       element: loggedIn ? <Profile /> : <Navigate to="/" />,
     },
+    { path: "/basket", element: <Basket /> },
   ];
 
   const routers = useRoutes(routeConfig);
