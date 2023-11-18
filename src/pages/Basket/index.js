@@ -3,24 +3,17 @@ import { useBasket } from "../../context/BasketContext";
 import {
   Box,
   Button,
-  Image,
   Text,
   VStack,
-  HStack,
-  IconButton,
-  Spacer,
   Heading,
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
   useDisclosure,
 } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
-import { DeleteIcon } from "@chakra-ui/icons";
 import AddressInputModel from "../../components/AddressInputModel/AddressInputModel";
 import { postOrder } from "../../api";
 import { message } from "antd";
+import BasketItems from "../../components/BasketItems/BasketItems";
+import EmptyCardAlert from "../../components/EmptyCardAlert/EmptyCardAlert";
 
 function Basket() {
   const [messageApi, contextHolder] = message.useMessage();
@@ -61,71 +54,14 @@ function Basket() {
         Your Cart
       </Heading>
       {basket.length === 0 ? (
-        <Alert
-          status="warning"
-          variant=""
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="center"
-          textAlign="center"
-          height="200px"
-        >
-          <AlertIcon boxSize="40px" mr={0} />
-          <AlertTitle mt={4} mb={1} fontSize="lg">
-            Your cart is empty!
-          </AlertTitle>
-          <AlertDescription maxWidth="sm">
-            Your cart is empty. Continue shopping{" "}
-            <Link to="/">
-              {" "}
-              <Text color="red" as="a">
-                here
-              </Text>{" "}
-            </Link>
-            .
-          </AlertDescription>
-        </Alert>
+        <EmptyCardAlert />
       ) : (
         basket.map((product) => (
-          <Box
+          <BasketItems
             key={product._id}
-            p="4"
-            boxShadow="md"
-            borderRadius="md"
-            borderWidth="1px"
-          >
-            <HStack spacing={{ base: "2", md: "4" }} alignItems="flex-start">
-              <Image
-                htmlWidth={{ base: "80px", md: "140px" }}
-                src={product.photos[0]}
-                alt={product.title}
-              />
-              <VStack align="start" flex="1">
-                <Text
-                  fontSize={{ base: "md", md: "lg" }}
-                  fontWeight="semibold"
-                  color="brand.500"
-                >
-                  {product.title}
-                </Text>
-                <Text color="gray.600">$ {product.price}</Text>
-                <Text mt={{ base: "2", md: "0" }}>{product.description}</Text>
-                <IconButton
-                  icon={<DeleteIcon />}
-                  colorScheme="red"
-                  variant="ghost"
-                  onClick={() => removeFromBasket(product)}
-                  mt={{ base: "2", md: "4" }}
-                />
-              </VStack>
-              <Spacer />
-              <Link to={`/product/${product._id}`}>
-                <Button colorScheme="blue" variant="outline">
-                  Details
-                </Button>
-              </Link>
-            </HStack>
-          </Box>
+            product={product}
+            removeFromBasket={removeFromBasket}
+          />
         ))
       )}
       {basket.length > 0 && (
