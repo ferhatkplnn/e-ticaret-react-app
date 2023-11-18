@@ -1,4 +1,4 @@
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import { Box } from "@chakra-ui/react";
 
 import RouterElement from "./router";
