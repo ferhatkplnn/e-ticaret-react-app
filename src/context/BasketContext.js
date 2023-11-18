@@ -21,7 +21,15 @@ const BasketProvider = ({ children }) => {
     setBasket([...newBasket]);
   };
 
-  const contextValues = { basket, setBasket, addToBasket, removeFromBasket };
+  const emptyBasket = () => setBasket([]);
+
+  const contextValues = {
+    basket,
+    setBasket,
+    addToBasket,
+    removeFromBasket,
+    emptyBasket,
+  };
 
   return (
     <BasketContext.Provider value={contextValues}>
