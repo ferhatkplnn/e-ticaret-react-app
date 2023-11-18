@@ -13,7 +13,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { useBasket } from "../../context/BasketContext";
+import { useBasket } from "../../../../context/BasketContext";
 import { DeleteIcon } from "@chakra-ui/icons";
 
 const BasketPopover = ({ basket }) => {

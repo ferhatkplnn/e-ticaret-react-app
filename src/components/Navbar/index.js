@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Box, Flex, Text } from "@chakra-ui/react";
-import { AuthButtons } from "./AuthButtons";
-import { ColorToggle } from "./ColorToggle";
+import { AuthButtons } from "./AuthButtons/AuthButtons";
+import { ColorToggle } from "./ColorToggle/ColorToggle";
 
 function Navbar() {
   return (
