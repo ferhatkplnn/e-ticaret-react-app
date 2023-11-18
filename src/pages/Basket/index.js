@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { useBasket } from "../../context/BasketContext";
 import {
   Box,
@@ -14,12 +14,41 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
+  useDisclosure,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { DeleteIcon } from "@chakra-ui/icons";
+import AddressInputModel from "../../components/AddressInputModel/AddressInputModel";
+import { postOrder } from "../../api";
+import { message } from "antd";
 
 function Basket() {
-  const { basket, removeFromBasket } = useBasket();
+  const [messageApi, contextHolder] = message.useMessage();
+  const { basket, removeFromBasket, emptyBasket } = useBasket();
+  const [address, setAddress] = useState("");
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const initialRef = useRef(null);
+
+  // const navigator = useNavigate();
+
+  const handleSubmitForm = async () => {
+    const itemIds = basket.map((item) => item._id);
+    const input = {
+      address,
+      items: JSON.stringify(itemIds),
+    };
+
+    await postOrder(input);
+
+    messageApi.open({
+      type: "success",
+      content: "Your order has been successfully completed!",
+    });
+
+    emptyBasket();
+    onClose();
+    // navigator("/orders");
+  };
 
   const totalPrice = basket.reduce(
     (total, product) => total + product.price,
@@ -107,17 +136,28 @@ function Basket() {
         </Box>
       )}
       {basket.length > 0 && (
-        <Button
-          colorScheme="blue"
-          variant="outline"
-          size={{ base: "md", md: "lg" }}
-          alignSelf="flex-end"
-          as={Link}
-          to="/"
-        >
-          Place Order
-        </Button>
+        <>
+          <Button
+            colorScheme="blue"
+            variant="outline"
+            size={{ base: "md", md: "lg" }}
+            alignSelf="flex-end"
+            as={Link}
+            onClick={onOpen}
+          >
+            Place Order
+          </Button>
+          <AddressInputModel
+            isOpen={isOpen}
+            onClose={onClose}
+            initialRef={initialRef}
+            address={address}
+            setAddress={setAddress}
+            handleSubmitForm={handleSubmitForm}
+          />
+        </>
       )}
+      {contextHolder}
     </VStack>
   );
 }
