@@ -8,7 +8,7 @@ import {
   Heading,
   useDisclosure,
 } from "@chakra-ui/react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AddressInputModel from "../../components/AddressInputModel/AddressInputModel";
 import { postOrder } from "../../api";
 import { message } from "antd";
@@ -21,8 +21,6 @@ function Basket() {
   const [address, setAddress] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = useRef(null);
-
-  // const navigator = useNavigate();
 
   const handleSubmitForm = async () => {
     const itemIds = basket.map((item) => item._id);
@@ -40,7 +38,6 @@ function Basket() {
 
     emptyBasket();
     onClose();
-    // navigator("/orders");
   };
 
   const totalPrice = basket.reduce(
