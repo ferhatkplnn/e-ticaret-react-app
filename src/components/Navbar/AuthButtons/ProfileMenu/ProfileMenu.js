@@ -23,11 +23,11 @@ export const ProfileMenu = () => {
           <Link to="/profile">
             <MenuItem>My Account</MenuItem>
           </Link>
-          <Link to="">
+          <Link to="basket">
             <MenuItem>My Basket</MenuItem>
           </Link>
-          <Link to="">
-            <MenuItem>My Orders</MenuItem>
+          <Link to="user-order-history">
+            <MenuItem>Orders History</MenuItem>
           </Link>
         </MenuGroup>
         <MenuDivider />
