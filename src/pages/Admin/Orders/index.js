@@ -32,7 +32,7 @@ function Orders() {
       </Text>
 
       <Table variant="simple">
-        <TableCaption>Imperial to metric conversion factors</TableCaption>
+        <TableCaption>Orders made by users</TableCaption>
         <Thead>
           <Tr>
             <Th>User</Th>
@@ -41,11 +41,11 @@ function Orders() {
           </Tr>
         </Thead>
         <Tbody>
-          {data.map((item) => (
-            <Tr key={item._id}>
-              <Td>{item.user.email}</Td>
-              <Td>{item.address}</Td>
-              <Td isNumeric>{item.items.length}</Td>
+          {data.map((order) => (
+            <Tr key={order._id}>
+              <Td>{order.user.email}</Td>
+              <Td>{order.address}</Td>
+              <Td isNumeric>{order.items.length}</Td>
             </Tr>
           ))}
         </Tbody>
