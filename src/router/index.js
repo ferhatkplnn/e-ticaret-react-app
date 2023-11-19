@@ -9,6 +9,7 @@ const Signup = lazy(() => import("../pages/Auth/Signup"));
 const ProductDetail = lazy(() => import("../pages/ProductDetail"));
 const Profile = lazy(() => import("../pages/Profile"));
 const Basket = lazy(() => import("../pages/Basket"));
+const UserOrdersHistory = lazy(() => import("../pages/UserOrdersHistory"));
 const Error404 = lazy(() => import("../pages/Error404"));
 const Admin = lazy(() => import("../pages/Admin"));
 const Orders = lazy(() => import("../pages/Admin/Orders"));
@@ -40,6 +41,7 @@ function RouterElement() {
       element: loggedIn ? <Profile /> : <Navigate to="/" />,
     },
     { path: "/basket", element: <Basket /> },
+    { path: "/user-order-history", element: <UserOrdersHistory /> },
     {
       path: "/admin/*",
       element: user?.role === "admin" ? <Admin /> : <Navigate to="/" />,
