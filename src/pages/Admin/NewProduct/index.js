@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { postProduct } from "../../../api";
 import { message } from "antd";
+import { Heading } from "@chakra-ui/react";
 import validationSchema from "./validations";
 import FormikForm from "../../../components/FormControls/FormikForm";
 
@@ -36,6 +37,9 @@ function NewProduct() {
 
   return (
     <div>
+      <Heading textAlign="center" fontSize="50px">
+        Create New Product
+      </Heading>
       <FormikForm
         initialValues={{
           title: "",

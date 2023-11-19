@@ -2,6 +2,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { fetchProduct, updateProduct } from "../../../api";
 import { message } from "antd";
+import { Heading } from "@chakra-ui/react";
 import validationSchema from "./validations";
 import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
 import FormikForm from "../../../components/FormControls/FormikForm";
@@ -46,6 +47,9 @@ function EditProduct() {
   };
   return (
     <div>
+      <Heading textAlign="center" fontSize="50px">
+        Edit Product
+      </Heading>
       <FormikForm
         initialValues={{
           title: data.title,
