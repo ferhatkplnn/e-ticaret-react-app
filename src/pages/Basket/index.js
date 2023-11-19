@@ -14,6 +14,7 @@ import { postOrder } from "../../api";
 import { message } from "antd";
 import BasketItems from "../../components/BasketItems/BasketItems";
 import EmptyCardAlert from "../../components/EmptyCardAlert/EmptyCardAlert";
+import { useQueryClient } from "@tanstack/react-query";
 
 function Basket() {
   const [messageApi, contextHolder] = message.useMessage();
@@ -21,6 +22,7 @@ function Basket() {
   const [address, setAddress] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = useRef(null);
+  const queryClient = useQueryClient();
 
   const handleSubmitForm = async () => {
     const itemIds = basket.map((item) => item._id);
@@ -38,6 +40,11 @@ function Basket() {
 
     emptyBasket();
     onClose();
+
+    queryClient.invalidateQueries({
+      queryKey: ["orders-history"],
+      refetchType: "all",
+    });
   };
 
   const totalPrice = basket.reduce(
