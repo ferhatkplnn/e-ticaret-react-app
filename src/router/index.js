@@ -5,6 +5,7 @@ import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
 import Basket from "../pages/Basket";
 import Error404 from "../pages/Error404";
 import Admin from "../pages/Admin";
+import Orders from "../pages/Admin/Orders";
 
 const Products = lazy(() => import("../pages/Products"));
 const Signin = lazy(() => import("../pages/Auth/Signin"));
@@ -39,9 +40,9 @@ function RouterElement() {
     {
       path: "/admin/*",
       element: user?.role === "admin" ? <Admin /> : <Navigate to="/" />,
+      children: [{ path: "orders", element: <Orders /> }],
     },
     { path: "*", element: <Error404 /> },
-    {},
   ];
 
   const routers = useRoutes(routeConfig);
