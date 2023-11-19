@@ -18,7 +18,7 @@ const AuthProvider = ({ children }) => {
         setLoggedIn(true);
         setUser(userData);
       } catch (error) {
-        console.error("Error fetching the user:", error);
+        console.error("Error fetching the user");
       } finally {
         setLoading(false);
       }
