@@ -11,7 +11,7 @@ function EditProduct() {
   const queryClient = useQueryClient();
 
   const { isLoading, isError, data, error } = useQuery({
-    queryKey: ["product", product_id],
+    queryKey: ["product", { product_id }],
     queryFn: () => fetchProduct(product_id),
   });
 
