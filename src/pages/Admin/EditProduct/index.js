@@ -4,7 +4,7 @@ import { fetchProduct, updateProduct } from "../../../api";
 import { message } from "antd";
 import validationSchema from "./validations";
 import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
-import FormikForm from "../../../components/FormControls/FromikForm";
+import FormikForm from "../../../components/FormControls/FormikForm";
 
 function EditProduct() {
   const { product_id } = useParams();
