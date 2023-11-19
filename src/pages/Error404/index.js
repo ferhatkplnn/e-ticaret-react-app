@@ -35,21 +35,13 @@ function Error404() {
         </AlertTitle>
         <AlertDescription>
           Sorry, the page you are looking for cannot be found. Please check the
-          URL or navigate back to the homepage to search for something else.
+          URL or navigate back to the{" "}
+          <Button color="red" variant="link" as={Link} to="/">
+            homepage
+          </Button>{" "}
+          to search for something else.
         </AlertDescription>
       </Alert>
-      <Box mt={6}>
-        <Button
-          as={Link}
-          to="/"
-          colorScheme="red"
-          size="md"
-          _focus={{ outline: "none" }}
-          variant="outline"
-        >
-          Go to Homepage
-        </Button>
-      </Box>
     </Box>
   );
 }
