@@ -21,7 +21,10 @@ Welcome to our E-Commerce Website project! This web application is built using R
 1. Open your browser and navigate to `http://localhost:3000`.
 2. Explore the product catalog, add items to your cart, and complete the checkout process.
 
-![E-Commerce Website Screenshot](screenshots/e-commerce-screenshot.png)
+![image](https://github.com/ferhatkplnn/e-ticaret-react-app/assets/29931637/b359634c-fba4-41ce-a46a-ad8a675764e1)
+![image](https://github.com/ferhatkplnn/e-ticaret-react-app/assets/29931637/48c50e33-a100-40e5-9032-b5440d266fdf)
+![image](https://github.com/ferhatkplnn/e-ticaret-react-app/assets/29931637/3f688a26-9946-43b5-bb88-570fedbc3635)
+
 
 ## Tech Stack
 
