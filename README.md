@@ -31,12 +31,6 @@ Welcome to our E-Commerce Website project! This web application is built using R
 - Node.js (backend server for handling data and authentication)
 - MongoDB (database for storing product and user information)
 
-
-## GitHub Stats
-
-[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=ferhatkplnn)](https://github.com/anuraghazra/github-readme-stats)
-
-
 ## Contact
 
 For inquiries or feedback, feel free to contact us at ferhat.kaplan.21@outlook.com
