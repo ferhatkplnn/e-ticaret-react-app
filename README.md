@@ -24,12 +24,15 @@ Welcome to our E-Commerce Website project! This web application is built using R
 ![image](https://github.com/ferhatkplnn/e-ticaret-react-app/assets/29931637/b359634c-fba4-41ce-a46a-ad8a675764e1)
 ![image](https://github.com/ferhatkplnn/e-ticaret-react-app/assets/29931637/48c50e33-a100-40e5-9032-b5440d266fdf)
 ![image](https://github.com/ferhatkplnn/e-ticaret-react-app/assets/29931637/3f688a26-9946-43b5-bb88-570fedbc3635)
+![image](https://github.com/ferhatkplnn/e-ticaret-react-app/assets/29931637/fb48fadf-1767-49fc-a67b-acd1e60ac4e7)
 
 
 ## Tech Stack
 
 - React
 - React Query
+- Formik
+- yup
 - Chakra UI
 - Ant Design UI
 - Node.js (backend server for handling data and authentication)
