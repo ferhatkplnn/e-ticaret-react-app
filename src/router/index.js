@@ -2,10 +2,6 @@ import { Suspense, lazy } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Navigate, useRoutes } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
-// import Basket from "../pages/Basket";
-// import Error404 from "../pages/Error404";
-// import Admin from "../pages/Admin";
-// import Orders from "../pages/Admin/Orders";
 
 const Products = lazy(() => import("../pages/Products"));
 const Signin = lazy(() => import("../pages/Auth/Signin"));
@@ -17,6 +13,7 @@ const Error404 = lazy(() => import("../pages/Error404"));
 const Admin = lazy(() => import("../pages/Admin"));
 const Orders = lazy(() => import("../pages/Admin/Orders"));
 const AdminProducts = lazy(() => import("../pages/Admin/Products"));
+const EditProduct = lazy(() => import("../pages/Admin/EditProduct"));
 
 function RouterElement() {
   const { loggedIn, user } = useAuth();
@@ -48,6 +45,7 @@ function RouterElement() {
       children: [
         { path: "orders", element: <Orders /> },
         { path: "products", element: <AdminProducts /> },
+        { path: "products/:product_id", element: <EditProduct /> },
       ],
     },
     { path: "*", element: <Error404 /> },
