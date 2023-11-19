@@ -18,10 +18,6 @@ function Navbar() {
             <Link to="/">E-ticaret</Link>
           </Text>
         </Box>
-
-        <Box ml="20">
-          <Link>Products</Link>
-        </Box>
       </Flex>
       <ColorToggle />
       <AuthButtons />
