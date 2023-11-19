@@ -21,7 +21,7 @@ function BasketItems({ product, removeFromBasket }) {
           src={product.photos[0]}
           alt={product.title}
         />
-        <VStack align="start" flex="1">
+        <VStack align="start" flex="10">
           <Text
             fontSize={{ base: "md", md: "lg" }}
             fontWeight="semibold"
@@ -30,7 +30,9 @@ function BasketItems({ product, removeFromBasket }) {
             {product.title}
           </Text>
           <Text color="gray.600">$ {product.price}</Text>
-          <Text mt={{ base: "2", md: "0" }}>{product.description}</Text>
+          <Text noOfLines="5" mt={{ base: "2", md: "0" }}>
+            {product.description}
+          </Text>
           <IconButton
             icon={<DeleteIcon />}
             colorScheme="red"
