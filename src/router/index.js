@@ -14,6 +14,7 @@ const Admin = lazy(() => import("../pages/Admin"));
 const Orders = lazy(() => import("../pages/Admin/Orders"));
 const AdminProducts = lazy(() => import("../pages/Admin/Products"));
 const EditProduct = lazy(() => import("../pages/Admin/EditProduct"));
+const NewProduct = lazy(() => import("../pages/Admin/NewProduct"));
 
 function RouterElement() {
   const { loggedIn, user } = useAuth();
@@ -46,6 +47,7 @@ function RouterElement() {
         { path: "orders", element: <Orders /> },
         { path: "products", element: <AdminProducts /> },
         { path: "products/:product_id", element: <EditProduct /> },
+        { path: "products/new", element: <NewProduct /> },
       ],
     },
     { path: "*", element: <Error404 /> },
