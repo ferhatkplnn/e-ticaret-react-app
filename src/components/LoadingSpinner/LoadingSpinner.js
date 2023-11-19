@@ -1,7 +1,7 @@
 import { Flex, Spinner, Text } from "@chakra-ui/react";
 import React from "react";
 
-function LoadingSpinner() {
+function LoadingSpinner({ message = "Loading..." }) {
   return (
     <Flex
       flexDirection="column"
@@ -16,7 +16,7 @@ function LoadingSpinner() {
         size="xl"
         color="red"
       />
-      <Text>Loading...</Text>
+      <Text>{message}</Text>
     </Flex>
   );
 }
