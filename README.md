@@ -8,6 +8,7 @@ Welcome to our E-Commerce Website project! This web application is built using R
 - **User Authentication:** Register an account or log in to track your orders and manage your profile.
 - **Shopping Cart:** Easily add the products to your cart and place your order.
 - **Order History:** View and track your order history.
+- **Automatic Scrolling** This project incorporates an automatic scrolling feature that dynamically loads and displays new content when the user scrolls down the page. This functionality enhances the user experience by seamlessly loading additional data as the user reaches the end of the page.
 
 ## Installation
 
